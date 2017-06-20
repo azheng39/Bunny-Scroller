@@ -29,7 +29,7 @@ class Bunny:
 
 			self.velocity = 20
 			self.velocity += self.gravity
-			self.y += self.veolcity
+			self.y += self.velocity
 
 
 class Floor:
