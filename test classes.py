@@ -10,8 +10,8 @@ class Bunny:
 
 		self.x = 0 #sets position
 		self.y = 0	
-		self.velocity = 0
-		self.gravity = -10
+		self.velocity = 0 #vertical velocity is 0
+		self.gravity = -10 #gravitational constant
 
 	def jump(self):
 
@@ -27,9 +27,10 @@ class Bunny:
 		
 		if(self.jumpup):
 
-			self.velocity = 20
-			self.velocity += self.gravity
-			self.y += self.velocity
+			self.velocity = 20 #changes vertical velocity so bunny goes up
+			self.velocity += self.gravity #decreases velocity 
+			self.y += self.veolcity #changes position of bunny 
+			
 
 
 class Floor:
