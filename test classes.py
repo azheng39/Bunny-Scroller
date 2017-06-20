@@ -21,23 +21,20 @@ class Bunny:
 		
 	def collide(self, enemy):
 
-
+		if(self.colliding):
+			
+			self.velocity = 0
+			print("You lost!")
 
 	def draw(self,screen):
 		
 		if(self.jumpup):
 
-			self.velocity = 20 #changes vertical velocity so bunny goes up
+			self.velocity = 20 #changes vert velocity to go up
 			self.velocity += self.gravity #decreases velocity 
-			self.y += self.veolcity #changes position of bunny 
+			self.y += self.velocity #changes position of bunny 
 			
-
-
-class Floor:
-
-	def __init__(self):
-
-		
+	
 
 class Background:
 
