@@ -30,6 +30,6 @@ class Bunny:
 
 		if(self.jumpup):
 
-			self.velocity = 20 #changes vert velocity to go up
+			self.velocity = 50 #changes vert velocity to go up
 			self.velocity += self.gravity #decreases velocity
             self.y += self.velocity #changes position of bunny 
