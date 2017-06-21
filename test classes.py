@@ -40,7 +40,7 @@ class Background(pygame.sprite.Sprite):
 
 	def __init__(self,name,x,y):
 		
-		self.back = pygame.image.load(name).convert_alpha()
+		self.backgroundImage = pygame.image.load(name).convert_alpha()
 		self.x = x	
 		self.y = y
 		
@@ -53,7 +53,7 @@ class Background(pygame.sprite.Sprite):
 			self.x -= 5
 	def update(self):
 		
-		screen.blit(self.back(self.x,self.y)
+		screen.blit(self.backgroundImage(self.x,self.y)
 			    
 class Obstacle:
 
