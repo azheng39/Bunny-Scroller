@@ -36,15 +36,21 @@ class Bunny:
 			
 	
 
-class Background:
+class Background(pygame.sprite.Sprite):
 
-	def __init__(self):
-
-
+	def __init__(self,name,x,y):
+		self.back = pygame.image.load(name).convert_alpha()
+		self.x = x	
+		self.y = y
+		
 
 	def scroll(self):
-
-
+		if self.x < -300:
+			self.x = 300
+		else:
+			self.x -= 5
+	def update(self):
+		screen.blit(self.back(self.x,self.y)
 class Obstacle:
 
 	def __init__(self):
