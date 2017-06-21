@@ -2,9 +2,9 @@ import pygame
 
 class Background():
 
-    def __init__(self, backgroundImage,x,y):
+    def __init__(self, name,x,y):
 
-        self.backgroundImage = pygame.image.load(backgroundImage).convert_alpha()
+        self.backgroundImage = pygame.image.load(name).convert_alpha()
         self.x = x
         self.y = y
     def scroll(self):
