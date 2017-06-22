@@ -37,7 +37,7 @@ class Bunny():
         self.bunnyImage = load_png("../assets/" + str(self.imageCounter) + ".png")
         if self.counter % 10 == 0:
 		self.imageCounter = self.imageCounter + 1
-        if(self.imageCounter == 4):
+        if(self.imageCounter == 3):
 		self.imageCounter = 0
 
 	def draw(self,screen):
