@@ -18,7 +18,7 @@ class Bunny():
 	self.y = 0
 	self.velocity = 0 #vertical velocity is 0
 	self.gravity = -10 #gravitational constant
-	
+
         self.rect.x = 0
         self.rect.y = 0
 
