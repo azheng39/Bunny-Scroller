@@ -3,7 +3,7 @@ import pygame
 class Bunny():
 
 	def __init__(self):
-        ''' init kangaroo object '''
+        ''' init bunny object '''
         pygame.sprite.Sprite.__init__(self) #sprite init
         self.bunnyImage, self.rect = load_png('') #load bunny image
         self.rect = self.rect.inflate(VALUE, VALUE) #.RECT IT
@@ -30,6 +30,7 @@ class Bunny():
 
 	def draw(self,screen):
         '''  draws the bunny objects jump and collision '''
+        '''exact formula for simulating jumping up then falling down will be worked out later'''
 		if(self.jumpup):
 
 			self.velocity = 20 #changes vert velocity to go up
