@@ -36,6 +36,10 @@ def main():
     test_bunny.colliding = True
     print(test_bunny.getCoordinates())
 
+    print("=====Obstacle Moving=====")
+    test_bunny.moving = True
+    print(test_bunny.velocity())
+
     
 
 main()
