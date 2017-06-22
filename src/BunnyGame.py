@@ -15,6 +15,7 @@ class BunnyGame():
 
             ''' Screen Text '''
             startText = font.render("S to Start", 0, (0,0,0))
+            endText = font.render("GGWP", 0, (0,0,0))
 
             pygame.display.init()
             screen = pygame.display.set_mode((1024, 576))
