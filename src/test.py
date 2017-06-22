@@ -29,7 +29,7 @@ def main():
     print("=====Second Jump Test=====")
     test_bunny.jumpup = True
     print(test_bunny.jumptimes) #should equal 1
-    test_bunny.jumpup = True      
+    test_bunny.jumpup = True
     print(test_bunny.jumptimes) #should equal 0
 
     print("=====Collision=====")
@@ -40,6 +40,6 @@ def main():
     test_bunny.moving = True
     print(test_bunny.velocity())
 
-    
+
 
 main()
