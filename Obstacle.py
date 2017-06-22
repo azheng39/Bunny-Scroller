@@ -3,6 +3,7 @@ import pygame
 class Obstacle():
 
     def __init__(self):
+        ''' init obstacle object '''
         self.image, self.rect = load_png('')
         self.rect = self.rect.inflate(0, 0)
 
@@ -17,4 +18,4 @@ class Obstacle():
     def draw(self, screen):
         ''' moves the obstacle from the right of the screen to the left '''
         if(self.moving):
-            
+            self.rect.x -= self.velocity
