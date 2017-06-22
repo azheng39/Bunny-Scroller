@@ -3,7 +3,7 @@ import pygame
 class Bunny():
 
 	def __init__(self):
-        ''' init bunny object '''
+    	''' init bunny object '''
         pygame.sprite.Sprite.__init__(self) #sprite init
         self.bunnyImage, self.rect = load_png('') #load bunny image
         self.rect = self.rect.inflate(VALUE, VALUE) #.RECT IT
