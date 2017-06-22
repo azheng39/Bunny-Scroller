@@ -1,17 +1,52 @@
 import pygame
+import os
 
 class BunnyGame():
 
         def __init__(self):
             pygame.init()
+
+            ''' Game States '''
             done = False
-            screen = pygame.display.set_model((1024, 576))
+            start = False
+
+            ''' Font '''
+            font = pygame.font.SysFont("../assets/Halo3.ttf", 40)
+
+            ''' Screen Text '''
+            startText = font.render("S to Start", 0, (0,0,0))
+
+            pygame.display.init()
+            screen = pygame.display.set_mode((1024, 576))
             pygame.display.set_caption('Leila the Bunny')
 
-            backGround = Background.Background('../assets/background.jpeg')
+            clock = pygame.time.Clock()
 
             while not done:
-                    for event in pygame.event.get():
-                        if event.type == pygame.QUIT:
-                                done = True
-                    pygame.display.flip()
+                clock.tick(60)
+                for event in pygame.event.get():
+
+                    if event.type == pygame.QUIT:
+                        done = True
+
+                    elif event.type == pygame.KEYDOWN:
+
+                        '''Jump'''
+                        #if event.key == pygame.K_UP:
+                        #    bunny.jump()
+
+                        '''Quit'''
+                        if event.key == pygame.K_q:
+                            done = True
+
+                        '''Start'''
+                        if event.type == pygame.K_s:
+                            start = True
+                if not start:
+                    screen.blit(startText, (200,200))
+
+                pygame.display.flip()
+
+def main():
+    BunnyGame()
+main()
