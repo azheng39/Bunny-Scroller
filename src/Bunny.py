@@ -31,14 +31,14 @@ class Bunny():
         ''' Collision boolean '''
 		self.colliding = True
 
-    def update(self):
+	def update(self):
         '''Cycles through bunny images'''
-        self.counter = self.counter + 1
-        self.bunnyImage = load_png("../assets/" + str(self.imageCounter) + ".png")
-        if self.counter % 10 == 0:
-		self.imageCounter = self.imageCounter + 1
-        if(self.imageCounter == 3):
-		self.imageCounter = 0
+		self.counter = self.counter + 1
+		self.bunnyImage = load_png("../assets/" + str(self.imageCounter) + ".png")
+		if self.counter % 10 == 0:
+			self.imageCounter = self.imageCounter + 1
+		if(self.imageCounter == 3):
+			self.imageCounter = 0
 
 	def draw(self,screen):
         '''  draws the bunny objects jump and collision '''
