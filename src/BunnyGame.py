@@ -36,8 +36,8 @@ class BunnyGame():
                     elif event.type == pygame.KEYDOWN:
 
                         '''Jump'''
-                        #if event.key == pygame.K_UP:
-                        #    bunny.jump()
+                        if event.key == pygame.K_UP:
+                            bunny.jump()
 
                         '''Quit'''
                         if event.key == pygame.K_q:
