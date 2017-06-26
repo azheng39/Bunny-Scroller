@@ -3,10 +3,16 @@ import pygame
 class Bunny():
 
 	def __init__(self):
+<<<<<<< HEAD
     	''' init bunny object '''
         pygame.sprite.Sprite.__init__(self) #sprite init
         self.bunnyImage, self.rect = load_png('') #load bunny image
         self.rect = self.rect.inflate(VALUE, VALUE) #.RECT IT
+=======
+		pygame.sprite.Sprite.__init__(self)
+		self.bunnyImage, self.rect = load_png('') #load bunny image
+		self.rect = self.rect.inflate(VALUE, VALUE) #.RECT IT
+>>>>>>> cfaaf17e9fed4f6a9889bb64bcaf4222a076c703
 		self.counter = 10
 		self.imagecounter = 0
 
@@ -19,20 +25,17 @@ class Bunny():
 		self.v = 8 #vertical velocity is 0
 		self.m = -2 #mass
 
-        self.rect.x = 0
-        self.rect.y = 0
+		self.rect.x = 0
+		self.rect.y = 0
 
 
 	def jump(self):
-        ''' Jump boolean '''
 		self.jumpup = True
 
 	def collide(self, enemy):
-        ''' Collision boolean '''
 		self.colliding = True
 
 	def update(self):
-        '''Cycles through bunny images'''
 		self.counter = self.counter + 1
 		self.bunnyImage = load_png("../assets/" + str(self.imageCounter) + ".png")
 		if self.counter % 10 == 0:
@@ -41,7 +44,6 @@ class Bunny():
 			self.imageCounter = 0
 
 	def draw(self,screen):
-        '''  draws the bunny objects jump and collision '''
 		if(self.jumpup):
 			if(self.v>0):
 				F = (0.5 * self.m * (self.v * self.v))
@@ -55,5 +57,6 @@ class Bunny():
 			self.jumpup = False
 			self.v = 8
 
-        if(self.colliding):
-                self.colliding = False
+		if(self.colliding):
+		        self.colliding = False
+		screen.blit(self.image, (self.rect.x, self.rect.y))
