@@ -1,8 +1,5 @@
 import pygame
 import os
-import background
-import bunny
-import obstacle
 
 class BunnyGame():
 
@@ -36,8 +33,11 @@ class BunnyGame():
                     elif event.type == pygame.KEYDOWN:
 
                         '''Jump'''
-                        if event.key == pygame.K_UP:
-                            bunny.jump()
+                        #if event.key == pygame.K_UP:
+                        #    bunny.jump()
+
+                        '''Reset'''
+                        #if event.key == pygame.K_r:
 
                         '''Quit'''
                         if event.key == pygame.K_q:
@@ -46,10 +46,10 @@ class BunnyGame():
                         '''Start'''
                         if event.type == pygame.K_s:
                             start = True
+
+
                 if not start:
                     screen.blit(startText, (200,200))
-
-                pygame.display.flip()
 
 def main():
     BunnyGame()

@@ -7,17 +7,17 @@ class Bunny():
         pygame.sprite.Sprite.__init__(self) #sprite init
         self.bunnyImage, self.rect = load_png('') #load bunny image
         self.rect = self.rect.inflate(VALUE, VALUE) #.RECT IT
-	self.counter = 10
-	self.imagecounter = 0
+		self.counter = 10
+		self.imagecounter = 0
 
-	self.jumptimes = 2 #times can jump w/o ground refresh
-	self.jumpup = False #is bunny allowed to jump
-	self.colliding = False #is bunny colliding with obstacle
+		self.jumptimes = 2 #times can jump w/o ground refresh
+		self.jumpup = False #is bunny allowed to jump
+		self.colliding = False #is bunny colliding with obstacle
 
-	self.x = 0 #sets position
-	self.y = 0
-	self.v = 8 #vertical velocity is 0
-	self.m = -2 #mass
+		self.x = 0 #sets position
+		self.y = 0
+		self.v = 8 #vertical velocity is 0
+		self.m = -2 #mass
 
         self.rect.x = 0
         self.rect.y = 0
@@ -49,7 +49,7 @@ class Bunny():
 				F = -(0.5 * self.m * (self.v * self.v))
 		self.y += -F
 		self.v += -1
-		
+
 		if(self.y > 500):
 			self.y = 500
 			self.jumpup = False
