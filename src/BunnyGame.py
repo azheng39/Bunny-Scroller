@@ -1,5 +1,8 @@
 import pygame
 import os
+import background
+import bunny
+import obstacle
 
 class BunnyGame():
 
