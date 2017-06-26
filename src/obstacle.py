@@ -1,11 +1,14 @@
 import pygame
+import random
 
 class Obstacle():
 
     def __init__(self):
         ''' init obstacle object '''
         self.image, self.rect = load_png('')
-        self.rect = self.rect.inflate(32,32)
+	a = random.randrange(-32,33)
+	b = random.randrange(-32,33)
+        self.rect = self.rect.inflate(a,b)
 
         self.x = 0
         self.y = 0
