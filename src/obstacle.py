@@ -14,8 +14,12 @@ class Obstacle():
 
         self.velocity = 0
         self.moving = True
-
     def draw(self, screen):
-        ''' moves the obstacle from the right of the screen to the left '''
-        if(self.moving):
-            self.rect.x -= self.velocity
+	    ''' moves the obstacle from the right of the screen to the left '''
+	    if(self.moving):
+		    if self.rect.x = 0:
+                self.rect.x = 1050
+		    else:
+			    self.rect.x -= self.velocity
+    def update(self):
+		screen.blit(self.image,(self.x,self.y))
