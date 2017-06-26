@@ -18,8 +18,8 @@ class Obstacle():
 	    ''' moves the obstacle from the right of the screen to the left '''
 	    if(self.moving):
 		    if self.rect.x = 0:
-                self.rect.x = 1050
+			self.rect.x = 1050
 		    else:
-			    self.rect.x -= self.velocity
+			self.rect.x -= self.velocity
     def update(self):
 		screen.blit(self.image,(self.x,self.y))
