@@ -20,8 +20,8 @@ class Obstacle():
     def draw(self, screen):
 	    ''' moves the obstacle from the right of the screen to the left '''
 	    if(self.moving):
-		    if self.rect.x == -200:
-			self.rect.x = 1050
+		    if self.rect.x == -300:
+			self.rect.x = 1100
 		    else:
 			self.rect.x -= self.velocity
     def update(self):
