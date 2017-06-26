@@ -22,4 +22,4 @@ class Obstacle():
 		    else:
 			self.rect.x -= self.velocity
     def update(self):
-		screen.blit(self.image,(self.x,self.y))
+		screen.blit(self.image,(self.rect.x,self.rect.y))
