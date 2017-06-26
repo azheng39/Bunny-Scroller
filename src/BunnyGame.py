@@ -11,7 +11,7 @@ class BunnyGame():
             start = False
 
             ''' Font '''
-            font = pygame.font.SysFont("../assets/Halo3.ttf", 40)
+            font = pygame.font.SysFont("../assets/Halo3.ttf", 18)
 
             ''' Screen Text '''
             startText = font.render("S to Start", 0, (0,0,0))
