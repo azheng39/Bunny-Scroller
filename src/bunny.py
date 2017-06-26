@@ -16,8 +16,8 @@ class Bunny():
 
 	self.x = 0 #sets position
 	self.y = 0
-	self.velocity = 0 #vertical velocity is 0
-	self.gravity = -10 #gravitational constant
+	self.v = 8 #vertical velocity is 0
+	self.m = -2 #mass
 
         self.rect.x = 0
         self.rect.y = 0
@@ -42,12 +42,18 @@ class Bunny():
 
 	def draw(self,screen):
         '''  draws the bunny objects jump and collision '''
-        '''exact formula for simulating jumping up then falling down will be worked out later'''
 		if(self.jumpup):
-
-			self.velocity = 20 #changes vert velocity to go up
-			self.velocity += self.gravity #decreases velocity
-            self.y += self.velocity #changes position of bunny
+			if(self.v>0):
+				F = (0.5 * self.m * (self.v * self.v))
+			else:
+				F = -(0.5 * self.m * (self.v * self.v))
+		self.y += -F
+		self.v += -1
+		
+		if(self.y > 500):
+			self.y = 500
+			self.jumpup = False
+			self.v = 8
 
         if(self.colliding):
                 self.colliding = False
