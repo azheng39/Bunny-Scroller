@@ -1,7 +1,7 @@
 import pygame
 import os
 from bunny import Bunny
-import background
+from BackGround import Background
 import obstacle
 
 class BunnyGame():
@@ -20,10 +20,27 @@ class BunnyGame():
             startText = myfont.render("S to Start", 0, (0,0,0))
             endText = myfont.render("GGWP", 0, (0,0,0))
 
+            ''' Screen elements '''
             pygame.display.init()
             screen = pygame.display.set_mode((1024, 576))
-            pygame.display.set_caption('Leila the Bunny')
+            pygame.display.set_caption('Leila the Bunny')\
 
+
+            white = (255,255,255)
+
+            ''' Background '''
+            background = pygame.Surface(screen.get_size())
+            background = background.convert()
+            background.fill(white) 
+
+
+            backGround = Background('../assets/background.png')
+
+            screen.blit(background, (0,0))
+            pygame.display.flip()
+            screen.blit(backGround.backgroundImage, backGround.rect)
+           
+            ''' Objects '''
             bun = Bunny()
             #bunSprite = pygame.sprite.RenderPlain(bun)
 
@@ -58,6 +75,8 @@ class BunnyGame():
                             start = True
                             bun.draw(screen)
                            # bunSprite.update()
+                screen.blit(backGround.backgroundImage, (0,0))
+                screen.blit(backGround.backgroundImage, backGround.rect)
                         
 
 
