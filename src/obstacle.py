@@ -20,9 +20,10 @@ class Obstacle():
     def draw(self, screen):
 	    ''' moves the obstacle from the right of the screen to the left '''
 	    if(self.moving):
-		    if self.rect.x == -300:
-			self.rect.x = 1100
-		    else:
+		 c = random.randrange(1100,1300,30)   
+		if self.rect.x == -300:
+			self.rect.x = c
+		else:
 			self.rect.x -= self.velocity
     def update(self):
 		screen.blit(self.image,(self.rect.x,self.rect.y))
