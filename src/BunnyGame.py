@@ -55,6 +55,12 @@ class BunnyGame():
             obs = Obstacle()
             obsSprite = pygame.sprite.RenderPlain(obs)
 
+            obs2 = Obstacle()
+            obs2Sprite = pygame.sprite.RenderPlain(obs2)
+
+            obs3 = Obstacle()
+            obs3Sprite = pygame.sprite.RenderPlain(obs3)
+
             clock = pygame.time.Clock()
 
             ''' Music '''
@@ -83,6 +89,7 @@ class BunnyGame():
                             print("=======Reset=======")
                             bun.reinit()
                             obs.reinit()
+                            score = 0
                             gg = False
                             start = False
 
@@ -130,15 +137,15 @@ class BunnyGame():
                     obs.draw(screen)
                     obsSprite.update()
 
-
                     ''' Difficulty Levels '''
-                    if bun.counter > 0:
+                    #if bun.counter > 0:
+
+                    #if bun.counter > 200:
+
+                    #if bun.counter > 300:
 
 
-                    if bun.counter > 100:
-
-
-
+                ''' Start Screen '''
                 if not start:
                     screen.blit(startText, (200,200))
 
