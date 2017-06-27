@@ -21,14 +21,14 @@ class Bunny(pygame.sprite.Sprite):
 		self.v = -20 #vertical velocity is 0
 		self.g = 1
 
-		self.rect.x = 0
+		self.rect.x = 100
 		self.rect.y = 415
 
 
 	def jump(self):
 		self.jumpup = True
 
-	def collide(self, enemy):
+	def collide(self):
 		self.colliding = True
 
 	def update(self):
@@ -38,6 +38,20 @@ class Bunny(pygame.sprite.Sprite):
 			self.imageCounter = self.imageCounter + 1
 		if(self.imageCounter == 3):
 			self.imageCounter = 0
+
+	def pauseBunny(self):
+		self.counter = 0
+		self.jumpup = False
+
+	def resumeBunny(self):
+		self.jumpup = True
+
+	def reinit(self):
+		self.x = 0
+		self.y = 0
+		#self.v = -20
+		self.rect.x = 100
+		self.rect.y = 415
 
 	def draw(self,screen):
 		if self.jumpup:
