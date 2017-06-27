@@ -1,8 +1,8 @@
 import pygame
-import os
 from bunny import Bunny
 from BackGround import Background
 import obstacle
+import ImageProcess
 
 class BunnyGame():
 
@@ -25,24 +25,31 @@ class BunnyGame():
             screen = pygame.display.set_mode((1024, 576))
             pygame.display.set_caption('Leila the Bunny')\
 
-
-            white = (255,255,255)
-
             ''' Background '''
+            white = (255,255,0)
             background = pygame.Surface(screen.get_size())
+            print("Screen.get_size()")
             background = background.convert()
-            background.fill(white) 
+            print("background.convert()")
+            background.fill(white)
+            print("background.fill()")
 
 
-            backGround = Background('../assets/background.png')
+            backGround = Background('../assets/background.jpeg')
+            print("Assign background.jpeg to backGround.")
 
             screen.blit(background, (0,0))
+            print("screen.blit(background, (0,0))")
             pygame.display.flip()
-            screen.blit(backGround.backgroundImage, backGround.rect)
-           
+            print("pygame.display.flip()")
+            screen.blit(backGround.image, backGround.rect)
+            print("screen.blit(backGround.image, backGround.rect)")
+
             ''' Objects '''
             bun = Bunny()
-            #bunSprite = pygame.sprite.RenderPlain(bun)
+            bunSprite = pygame.sprite.RenderPlain(bun)
+
+
 
             clock = pygame.time.Clock()
 
@@ -59,6 +66,7 @@ class BunnyGame():
                         if event.key == pygame.K_UP:
                             print("UP")
                             bun.jump()
+                            print("bun.jump()")
 
                         '''Reset'''
                         if event.key == pygame.K_r:
@@ -71,17 +79,23 @@ class BunnyGame():
 
                         '''Start'''
                         if event.key == pygame.K_s:
-                            print("Start")
+                            print("S pressed.")
                             start = True
-                            bun.draw(screen)
-                           # bunSprite.update()
-                screen.blit(backGround.backgroundImage, (0,0))
-                screen.blit(backGround.backgroundImage, backGround.rect)
-                        
+                            print("Start set to True.")
+
+                screen.blit(backGround.image, (0,0))
+                screen.blit(backGround.image, backGround.rect)
+
+                if start:
+                    bun.draw(screen)
+                    bunSprite.update()
 
 
                 if not start:
                     screen.blit(startText, (200,200))
+
+                pygame.display.update()
+                pygame.display.flip()
 
 def main():
     BunnyGame()
