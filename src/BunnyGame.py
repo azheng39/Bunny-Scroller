@@ -1,6 +1,6 @@
 import pygame
 import os
-import bunny
+from bunny import Bunny
 import background
 import obstacle
 
@@ -14,15 +14,18 @@ class BunnyGame():
             start = False
 
             ''' Font '''
-            font = pygame.font.SysFont("../assets/Halo3.ttf", 18)
+            myfont = pygame.font.SysFont("../assets/Halo3.ttf", 18)
 
             ''' Screen Text '''
-            startText = font.render("S to Start", 0, (0,0,0))
-            endText = font.render("GGWP", 0, (0,0,0))
+            startText = myfont.render("S to Start", 0, (0,0,0))
+            endText = myfont.render("GGWP", 0, (0,0,0))
 
             pygame.display.init()
             screen = pygame.display.set_mode((1024, 576))
             pygame.display.set_caption('Leila the Bunny')
+
+            bun = Bunny()
+            kangSprite = pygame.sprite.RenderPlain(kang)
 
             clock = pygame.time.Clock()
 
@@ -36,8 +39,8 @@ class BunnyGame():
                     elif event.type == pygame.KEYDOWN:
 
                         '''Jump'''
-                        #if event.key == pygame.K_UP:
-                        #    bunny.jump()
+                        if event.key == pygame.K_UP:
+                            bun.jump()
 
                         '''Reset'''
                         #if event.key == pygame.K_r:
@@ -49,6 +52,8 @@ class BunnyGame():
                         '''Start'''
                         if event.type == pygame.K_s:
                             start = True
+                            kang.draw(screen)
+                        
 
 
                 if not start:
