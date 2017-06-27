@@ -1,18 +1,14 @@
 import pygame
+from ImageProcess import load_image
 
 class Bunny():
 
 	def __init__(self):
-<<<<<<< HEAD
-    	''' init bunny object '''
-        pygame.sprite.Sprite.__init__(self) #sprite init
-        self.bunnyImage, self.rect = load_png('') #load bunny image
-        self.rect = self.rect.inflate(VALUE, VALUE) #.RECT IT
-=======
+
 		pygame.sprite.Sprite.__init__(self)
-		self.bunnyImage, self.rect = load_png('') #load bunny image
-		self.rect = self.rect.inflate(VALUE, VALUE) #.RECT IT
->>>>>>> cfaaf17e9fed4f6a9889bb64bcaf4222a076c703
+		self.bunnyImage, self.rect = load_image('../assets/0.PNG')
+		self.rect = self.rect.inflate(-25, -25) #.RECT IT
+
 		self.counter = 10
 		self.imagecounter = 0
 
@@ -26,7 +22,7 @@ class Bunny():
 		self.m = -2 #mass
 
 		self.rect.x = 0
-		self.rect.y = 0
+		self.rect.y = 415
 
 
 	def jump(self):
@@ -37,7 +33,7 @@ class Bunny():
 
 	def update(self):
 		self.counter = self.counter + 1
-		self.bunnyImage = load_png("../assets/" + str(self.imageCounter) + ".png")
+		self.bunnyImage = load_image("../assets/" + str(self.imageCounter) + ".png")
 		if self.counter % 10 == 0:
 			self.imageCounter = self.imageCounter + 1
 		if(self.imageCounter == 3):
@@ -49,8 +45,8 @@ class Bunny():
 				F = (0.5 * self.m * (self.v * self.v))
 			else:
 				F = -(0.5 * self.m * (self.v * self.v))
-		self.y += -F
-		self.v += -1
+			self.y += -F
+			self.v += -1
 
 		if(self.y > 500):
 			self.y = 500
@@ -59,4 +55,4 @@ class Bunny():
 
 		if(self.colliding):
 		        self.colliding = False
-		screen.blit(self.image, (self.rect.x, self.rect.y))
+		screen.blit(self.bunnyImage, (self.rect.x, self.rect.y))

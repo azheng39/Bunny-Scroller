@@ -25,7 +25,7 @@ class BunnyGame():
             pygame.display.set_caption('Leila the Bunny')
 
             bun = Bunny()
-            kangSprite = pygame.sprite.RenderPlain(kang)
+            #bunSprite = pygame.sprite.RenderPlain(bun)
 
             clock = pygame.time.Clock()
 
@@ -40,19 +40,24 @@ class BunnyGame():
 
                         '''Jump'''
                         if event.key == pygame.K_UP:
+                            print("UP")
                             bun.jump()
 
                         '''Reset'''
-                        #if event.key == pygame.K_r:
+                        if event.key == pygame.K_r:
+                            print("Restart")
 
                         '''Quit'''
                         if event.key == pygame.K_q:
+                            print("Quit")
                             done = True
 
                         '''Start'''
-                        if event.type == pygame.K_s:
+                        if event.key == pygame.K_s:
+                            print("Start")
                             start = True
-                            kang.draw(screen)
+                            bun.draw(screen)
+                           # bunSprite.update()
                         
 
 
