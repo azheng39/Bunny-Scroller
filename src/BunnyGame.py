@@ -31,7 +31,7 @@ class BunnyGame():
             pygame.display.set_caption('Leila the Bunny')
 
             ''' Background '''
-            white = (255,255,0)
+            white = (255,255,255)
             background = pygame.Surface(screen.get_size())
             background = background.convert()
             background.fill(white)
@@ -64,11 +64,11 @@ class BunnyGame():
             clock = pygame.time.Clock()
 
             ''' Music '''
-            #pygame.mixer.init(22050, -16, 2, 4096)
-            #pygame.mixer.music.load("../assets/song.mp3")
-            #pygame.mixer.music.set_volume(.5)
-            #pygame.mixer.music.play(-1)
-
+            pygame.mixer.init(22050,-16,2,4096)
+            pygame.mixer.music.load("../assets/song.mp3")
+            pygame.mixer.music.set_volume(.5)
+            pygame.mixer.music.play(-1)
+    
             ''' Game Loop '''
             while not done:
                 clock.tick(60)
