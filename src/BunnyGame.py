@@ -184,7 +184,7 @@ class BunnyGame():
                         bun.lvlspeed = 4
                         
                     if bun.counter >= 2000:
-                        obs3.velocity = 7
+                        obs3.velocity = 10
                         bun.lvlspeed = 3
                 if not start:
                     screen.blit(titleText, (300,20))
