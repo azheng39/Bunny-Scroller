@@ -60,6 +60,12 @@ class BunnyGame():
 
             obs = Obstacle()
             obsSprite = pygame.sprite.RenderPlain(obs)
+        
+            obs2 = Obstacle()
+            obs2Sprite = pygame.sprite.RenderPlain(obs2)
+
+            obs3 = Obstacle()
+            obs3Sprite = pygame.sprite.RenderPlain(obs3)
 
             cloud1 = Cloud()
             cloud1Sprite = pygame.sprite.RenderPlain(cloud1)
@@ -90,6 +96,8 @@ class BunnyGame():
                         if event.key == pygame.K_r:
                             bun.reinit()
                             obs.reinit()
+                            obs2.reinit()
+                            obs3.reinit()
                             cloud1.reinit()
                             score = 0
                             gg = False
@@ -112,6 +120,14 @@ class BunnyGame():
                 if bun.rect.colliderect(obs.rect):
                     bun.collide()
                     gg = True
+                
+                if bun.rect.colliderect(obs2.rect):
+                    bun.collide()
+                    gg = True
+                    
+                if bun.rect.colliderect(obs3.rect):
+                    bun.collide()
+                    gg = True
 
                 ''' Game over '''
                 if gg:
@@ -119,6 +135,8 @@ class BunnyGame():
                     screen.blit(textRestart, (460,80))
                     bun.pauseBunny()
                     obs.pauseObstacle()
+                    obs2.pauseObstacle()
+                    obs3.pauseObstacle()
                     cloud1.pauseCloud()
 
                     ''' Highscore I/O '''
@@ -145,6 +163,9 @@ class BunnyGame():
 
                     obs.draw(screen)
                     obsSprite.update()
+                
+                    obs2.draw(screen)
+                    obs2Sprite.update()
 
                     cloud1.draw(screen)
                     cloud1Sprite.update()
@@ -152,12 +173,17 @@ class BunnyGame():
                     ''' Difficulty Levels '''
                     if bun.counter > 1000:
                         obs.velocity = 15
+                        obs.velocity = 15
                         bun.lvlSpeed = 4
 
                     if bun.counter > 2000:
-                        obs.velocity = 20
+                        obs3.draw(screen)
+                        obs3Sprite.update()
+                        obs.velocity = 17
+                        obs2.velocity = 17
+                        obs3.velocity = 15
                         bun.lvlSpeed = 3
-
+                        
                 ''' Start Screen '''
                 if not start:
                     screen.blit(titleText, (300,20))
