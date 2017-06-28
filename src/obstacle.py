@@ -41,7 +41,7 @@ class Obstacle(pygame.sprite.Sprite):
 		left of screen and resets position when off screen. Draws obstacle onto
 		screen. '''
 		if(self.moving):
-			b = random.randrange(200,500,100)
+			b = random.randrange(300,700,100)
 			a = random.randrange(1100,1700,b)
 			if self.rect.x <= -300:
 				self.rect.x = a
