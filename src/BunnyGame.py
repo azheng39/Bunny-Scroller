@@ -77,6 +77,7 @@ class BunnyGame():
             clock = pygame.time.Clock()
 
             ''' Music '''
+            paused = -1
             pygame.mixer.init(22050,-16,2,4096)
             pygame.mixer.music.load("../assets/song.mp3")
             pygame.mixer.music.set_volume(.5)
@@ -117,6 +118,10 @@ class BunnyGame():
                         if event.key == pygame.K_s:
                             start = True
 
+                        '''Pause/Unpause Music'''
+                        if event.key == pygame.K_m:
+                            paused = -paused
+
                 ''' Draw background image '''
                 screen.blit(backGround.image, (0,0))
                 screen.blit(backGround.image, backGround.rect)
@@ -125,6 +130,13 @@ class BunnyGame():
                 if bun.rect.colliderect(obs.rect) or bun.rect.colliderect(obs2.rect) or bun.rect.colliderect(obs3.rect) or bun.rect.colliderect(stage.rect):
                     bun.collide()
                     gg = True
+ 
+                '''Pause/Unpause Music'''
+                if paused == 1:
+                    pygame.mixer.music.pause()
+
+                elif paused == -1:
+                    pygame.mixer.music.unpause()
 
                 ''' Game over '''
                 if gg:
