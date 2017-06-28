@@ -16,11 +16,12 @@ class BunnyGame():
             gg = False #Collided, game reset
 
             ''' Font '''
-            titleFont = pygame.font.Font("../assets/title.ttf", 18)
+            titleFont = pygame.font.Font("../assets/title.ttf", 50)
             mainFont = pygame.font.Font("../assets/main.ttf", 18)
-            diedFont = pygame.font.Font("../assets/died.ttf", 30)
+            diedFont = pygame.font.Font("../assets/died.ttf", 60)
 
             ''' Screen Text '''
+            titleText = titleFont.render("LEILA THE BUNNY", 0, (255,255,255))
             startText = mainFont.render("S to Start", 0, (0,0,0))
             endText = mainFont.render("GGWP", 0, (0,0,0))
             textYouDied = diedFont.render("YOU DIED", 0, (0,0,0))
@@ -133,8 +134,8 @@ class BunnyGame():
                     ''' Score '''
                     label = mainFont.render("Score: {0}".format(score), 0, (0, 0, 0))
                     texths = mainFont.render("High Score: {0}".format(highscore), 0, (0,0,0))
-                    screen.blit(label, (900, 10))
-                    screen.blit(texths, (900, 40))
+                    screen.blit(label, (850, 10))
+                    screen.blit(texths, (850, 40))
                     if not gg and start:
                         score += 1
 
@@ -159,6 +160,7 @@ class BunnyGame():
 
                 ''' Start Screen '''
                 if not start:
+                    screen.blit(titleText, (300,10))
                     screen.blit(startText, (200,200))
                     screen.blit(textQuit, (300,300))
 
