@@ -137,12 +137,14 @@ class BunnyGame():
                     obsSprite.update()
 
                     ''' Difficulty Levels '''
-                    #if bun.counter > 0:
+                    if bun.counter > 0:
+                        obs.velocity = 10
 
-                    #if bun.counter > 200:
+                    if bun.counter > 200:
+                        obs.velocity = 20
 
-                    #if bun.counter > 300:
-
+                    if bun.counter > 300:
+                        obs.velocity = 30
 
                 ''' Start Screen '''
                 if not start:
