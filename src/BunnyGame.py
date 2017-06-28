@@ -166,25 +166,26 @@ class BunnyGame():
                 
                     obs2.draw(screen)
                     obs2Sprite.update()
-
+                    
+                    obs3.draw(screen)
+                    obs2Sprite.update()
+                     
                     cloud1.draw(screen)
                     cloud1Sprite.update()
 
                     ''' Difficulty Levels '''
-                    if bun.counter > 1000:
-                        obs.velocity = 15
-                        obs.velocity = 15
-                        bun.lvlSpeed = 4
-
-                    if bun.counter > 2000:
-                        obs3.draw(screen)
-                        obs3Sprite.update()
-                        obs.velocity = 17
-                        obs2.velocity = 17
-                        obs3.velocity = 15
-                        bun.lvlSpeed = 3
+                    obs3.velocity = 0
+                    for n in range(20):
+                        if bun.counter >= 200 * n:
+                            obs.velocity = 10 + 0.5 * n
+                            obs2.velocity = 10 + 0.5 * n
+                    
+                    if bun.counter >1000:
+                        bun.lvlspeed = 4
                         
-                ''' Start Screen '''
+                    if bun.counter >= 2000:
+                        obs3.velocity = 13
+                        bun.lvlspeed = 3
                 if not start:
                     screen.blit(titleText, (300,20))
                     screen.blit(startText, (460,85))
