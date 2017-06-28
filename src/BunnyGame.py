@@ -147,11 +147,11 @@ class BunnyGame():
                     cloud1Sprite.update()
 
                     ''' Difficulty Levels '''
-                    if bun.counter > 500:
+                    if bun.counter > 1000:
                         obs.velocity = 15
                         bun.lvlSpeed = 4
 
-                    if bun.counter > 1000:
+                    if bun.counter > 2000:
                         obs.velocity = 20
                         bun.lvlSpeed = 3
 

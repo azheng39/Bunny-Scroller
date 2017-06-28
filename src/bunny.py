@@ -8,10 +8,11 @@ class Bunny(pygame.sprite.Sprite):
 		variables for a bunny object. '''
 		pygame.sprite.Sprite.__init__(self)
 		self.bunnyImage, self.rect = load_image('../assets/0.png')
-		self.rect = self.rect.inflate(-5,-7) #.RECT IT
+		self.rect = self.rect.inflate(-25, -25) #.RECT IT
 
 		self.counter = 10
 		self.imageCounter = 0
+		self.lvlSpeed = 5
 
 		self.jumptimes = 2 #times can jump w/o ground refresh
 		self.jumpup = False #is bunny allowed to jump
@@ -37,7 +38,7 @@ class Bunny(pygame.sprite.Sprite):
 		''' Handles the animation of the bunny running. '''
 		self.counter = self.counter + 1
 		self.bunnyImage = pygame.image.load("../assets/" + str(self.imageCounter) + ".png")
-		if self.counter % 5 == 0:
+		if self.counter % self.lvlSpeed == 0:
 			self.imageCounter = self.imageCounter + 1
 		if(self.imageCounter == 3):
 			self.imageCounter = 0

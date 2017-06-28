@@ -8,7 +8,7 @@ class Obstacle(pygame.sprite.Sprite):
 		variables for an obstacle object. '''
 		pygame.sprite.Sprite.__init__(self)
 		self.image, self.rect = load_image('../assets/obstacle.png')
-		self.rect = self.rect.inflate(-20,-10)
+		self.rect = self.rect.inflate(45, 45)
 
 		self.x = 1100
 		self.y = 0
@@ -32,7 +32,7 @@ class Obstacle(pygame.sprite.Sprite):
 		self.y = 415
 		self.rect.x = 1100
 		self.rect.y = 415
-		self.v = 10
+		self.velocity = 10
 		self.moving = True
 
 
@@ -41,7 +41,7 @@ class Obstacle(pygame.sprite.Sprite):
 		left of screen and resets position when off screen. Draws obstacle onto
 		screen. '''
 		if(self.moving):
-			if self.rect.x == -300:
+			if self.rect.x <= -300:
 				self.rect.x = 1100
 			else:
 				self.rect.x -= self.velocity
