@@ -16,14 +16,16 @@ class BunnyGame():
             gg = False #Collided, game reset
 
             ''' Font '''
-            myfont = pygame.font.Font("../assets/title.ttf", 18)
+            titleFont = pygame.font.Font("../assets/title.ttf", 18)
+            mainFont = pygame.font.Font("../assets/main.ttf", 18)
+            diedFont = pygame.font.Font("../assets/died.ttf", 30)
 
             ''' Screen Text '''
-            startText = myfont.render("S to Start", 0, (0,0,0))
-            endText = myfont.render("GGWP", 0, (0,0,0))
-            textYouDied = myfont.render("YOU DIED", 0, (0,0,0))
-            textRestart = myfont.render("R to Restart", 0, (0,0,0))
-            textQuit = myfont.render("Q to Quit", 0, (0,0,0))
+            startText = mainFont.render("S to Start", 0, (0,0,0))
+            endText = mainFont.render("GGWP", 0, (0,0,0))
+            textYouDied = diedFont.render("YOU DIED", 0, (0,0,0))
+            textRestart = mainFont.render("R to Restart", 0, (0,0,0))
+            textQuit = mainFont.render("Q to Quit", 0, (0,0,0))
 
             ''' Screen elements '''
             pygame.display.init()
@@ -129,8 +131,8 @@ class BunnyGame():
                 if start:
 
                     ''' Score '''
-                    label = myfont.render("Score: {0}".format(score), 0, (0, 0, 0))
-                    texths = myfont.render("High Score: {0}".format(highscore), 0, (0,0,0))
+                    label = mainFont.render("Score: {0}".format(score), 0, (0, 0, 0))
+                    texths = mainFont.render("High Score: {0}".format(highscore), 0, (0,0,0))
                     screen.blit(label, (900, 10))
                     screen.blit(texths, (900, 40))
                     if not gg and start:
