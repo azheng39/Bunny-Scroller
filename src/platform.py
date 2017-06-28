@@ -2,43 +2,43 @@ import pygame
 from ImageProcess import load_image
 import random
 
-class Obstacle(pygame.sprite.Sprite):
+class Platform(pygame.sprite.Sprite):
 
 	def __init__(self):
-		''' Load obstacle image and initialize it for the screen. Initialize
-		variables for an obstacle object. '''
+		''' Load platform image and initialize it for the screen. Initialize
+		variables for an platform object. '''
 		pygame.sprite.Sprite.__init__(self)
-		self.image, self.rect = load_image('../assets/obstacle.png')
+		self.image, self.rect = load_image('../assets/platform.png')
 		self.rect = self.rect.inflate(-10,-10)
 
 		self.x = 1100
 		self.y = 0
 		self.rect.x = 1100
-		self.rect.y = 415
+		self.rect.y = 370
 
 		self.velocity = 10
 		self.moving = True
 
-	def pauseObstacle(self):
-		''' Pauses movement of obstacle by setting moving equal to False. '''
+	def pausePlatform(self):
+		''' Pauses movement of platform by setting moving equal to False. '''
 		self.moving = False
 
-	def resumeObstacle(self):
-		''' Resumes movement of obstacle of setting moving equal to True. '''
+	def resumePlatform(self):
+		''' Resumes movement of platform of setting moving equal to True. '''
 		self.moving = True
 
 	def reinit(self):
-		''' Resets the obstacle to its starting state. '''
+		''' Resets the platform to its starting state. '''
 		self.x = 1100
-		self.y = 415
+		self.y = 370
 		self.rect.x = 1100
-		self.rect.y = 415
+		self.rect.y = 370
 		self.velocity = 10
 		self.moving = True
 
 	def draw(self, screen):
-		''' Handles the mathematics for obstacles scrolling from right to
-		left of screen and resets position when off screen. Draws obstacle onto
+		''' Handles the mathematics for platforms scrolling from right to
+		left of screen and resets position when off screen. Draws platform onto
 		screen. '''
 		if(self.moving):
                         a = random.randrange(1100,1600,50)

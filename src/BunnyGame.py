@@ -3,6 +3,7 @@ from bunny import Bunny
 from BackGround import Background
 from obstacle import Obstacle
 from cloud import Cloud
+from platform import Platform
 import ImageProcess
 
 class BunnyGame():
@@ -67,6 +68,9 @@ class BunnyGame():
             obs3 = Obstacle()
             obs3Sprite = pygame.sprite.RenderPlain(obs3)
 
+            stage = Platform()
+            stageSprite = pygame.sprite.RenderPlain(stage)
+
             cloud1 = Cloud()
             cloud1Sprite = pygame.sprite.RenderPlain(cloud1)
 
@@ -98,6 +102,7 @@ class BunnyGame():
                             obs.reinit()
                             obs2.reinit()
                             obs3.reinit()
+                            stage.reinit()
                             cloud1.reinit()
                             score = 0
                             gg = False
@@ -117,26 +122,19 @@ class BunnyGame():
                 screen.blit(backGround.image, backGround.rect)
 
                 ''' Collision '''
-                if bun.rect.colliderect(obs.rect):
-                    bun.collide()
-                    gg = True
-                
-                if bun.rect.colliderect(obs2.rect):
-                    bun.collide()
-                    gg = True
-                    
-                if bun.rect.colliderect(obs3.rect):
+                if bun.rect.colliderect(obs.rect) or bun.rect.colliderect(obs2.rect) or bun.rect.colliderect(obs3.rect) or bun.rect.colliderect(stage.rect):
                     bun.collide()
                     gg = True
 
                 ''' Game over '''
                 if gg:
-                    screen.blit(textYouDied, (400,10))
-                    screen.blit(textRestart, (460,80))
+                    screen.blit(textYouDied, (405,30))
+                    screen.blit(textRestart, (466,100))
                     bun.pauseBunny()
                     obs.pauseObstacle()
                     obs2.pauseObstacle()
                     obs3.pauseObstacle()
+                    stage.pausePlatform
                     cloud1.pauseCloud()
 
                     ''' Highscore I/O '''
@@ -169,27 +167,33 @@ class BunnyGame():
                     
                     obs3.draw(screen)
                     obs2Sprite.update()
+
+                    stage.draw(screen)
+                    stageSprite.update()
                      
                     cloud1.draw(screen)
                     cloud1Sprite.update()
 
                     ''' Difficulty Levels '''
                     obs3.velocity = 0
-                    for n in range(20):
-                        if bun.counter >= 200 * n:
-                            obs.velocity = 10 + 0.5 * n
-                            obs2.velocity = 10 + 0.5 * n
+                    obs2.velocity = 0
+                    stage.velocity = 0
                     
-                    if bun.counter >1000:
+                    if bun.counter >= 200:
+                        obs2.velocity = 10
                         bun.lvlspeed = 4
                         
-                    if bun.counter >= 2000:
-                        obs3.velocity = 10
+                    if bun.counter >= 400:
+                        stage.velocity = 10
                         bun.lvlspeed = 3
+
+                    if bun.counter >= 800:
+                        obs3.velocity = 10
+                        bun.lvlspeed = 2
                 if not start:
-                    screen.blit(titleText, (300,20))
-                    screen.blit(startText, (460,85))
-                    screen.blit(textQuit, (455,105))
+                    screen.blit(titleText, (307,20))
+                    screen.blit(startText, (478,85))
+                    screen.blit(textQuit, (473,105))
 
                 ''' Screen update '''
                 pygame.display.update()

@@ -8,7 +8,7 @@ class Bunny(pygame.sprite.Sprite):
 		variables for a bunny object. '''
 		pygame.sprite.Sprite.__init__(self)
 		self.bunnyImage, self.rect = load_image('../assets/0.png')
-		self.rect = self.rect.inflate(-25, -25) #.RECT IT
+		self.rect = self.rect.inflate(-25, -25)
 
 		self.counter = 10
 		self.imageCounter = 0
@@ -18,12 +18,12 @@ class Bunny(pygame.sprite.Sprite):
 		self.jumpup = False #is bunny allowed to jump
 		self.colliding = False #is bunny colliding with obstacle
 
-		self.x = 0 #sets position
+		self.x = 0
 		self.y = 0
 		self.rect.x = 100
 		self.rect.y = 415
 		
-		self.v = -20 #vertical velocity is 0
+		self.v = -20 #vertical velocity
 		self.g = 1
 
 	def jump(self):
@@ -57,7 +57,7 @@ class Bunny(pygame.sprite.Sprite):
 		''' Resets the bunny to its starting state. '''
 		self.x = 0
 		self.y = 0
-		#self.v = -20
+		self.v = -20
 		self.rect.x = 100
 		self.rect.y = 415
 
