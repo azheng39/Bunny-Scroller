@@ -7,7 +7,7 @@ class Bunny(pygame.sprite.Sprite):
 		'''  Load bunny image and initialize it for the screen. Initialize
 		variables for a bunny object. '''
 		pygame.sprite.Sprite.__init__(self)
-		self.bunnyImage, self.rect = load_image('../assets/0.PNG')
+		self.bunnyImage, self.rect = load_image('../assets/0.png')
 		self.rect = self.rect.inflate(-25, -25) #.RECT IT
 
 		self.counter = 10

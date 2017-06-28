@@ -73,7 +73,6 @@ class BunnyGame():
                     if event.type == pygame.QUIT:
                         done = True
 
-                    ''' Keyboard input '''
                     elif event.type == pygame.KEYDOWN:
 
                         ''' Bunny jump '''
