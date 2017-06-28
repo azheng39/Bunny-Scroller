@@ -115,8 +115,8 @@ class BunnyGame():
 
                 ''' Game over '''
                 if gg:
-                    screen.blit(textYouDied, (500,500))
-                    screen.blit(textRestart, (400,400))
+                    screen.blit(textYouDied, (400,10))
+                    screen.blit(textRestart, (460,80))
                     bun.pauseBunny()
                     obs.pauseObstacle()
                     cloud1.pauseCloud()
@@ -160,9 +160,9 @@ class BunnyGame():
 
                 ''' Start Screen '''
                 if not start:
-                    screen.blit(titleText, (300,10))
-                    screen.blit(startText, (200,200))
-                    screen.blit(textQuit, (300,300))
+                    screen.blit(titleText, (300,20))
+                    screen.blit(startText, (460,85))
+                    screen.blit(textQuit, (455,105))
 
                 ''' Screen update '''
                 pygame.display.update()
