@@ -1,5 +1,4 @@
 import pygame
-import random
 from ImageProcess import load_image
 
 class Obstacle(pygame.sprite.Sprite):
