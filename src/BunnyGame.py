@@ -86,6 +86,7 @@ class BunnyGame():
                             score = 0
                             gg = False
                             start = False
+                            obs.velocity = 10
 
                         ''' Quit game '''
                         if event.key == pygame.K_q:
@@ -140,11 +141,11 @@ class BunnyGame():
                     if bun.counter > 0:
                         obs.velocity = 10
 
-                    if bun.counter > 200:
-                        obs.velocity = 20
+                    if bun.counter > 400:
+                        obs.velocity = 15
 
-                    if bun.counter > 300:
-                        obs.velocity = 30
+                    if bun.counter > 800:
+                        obs.velocity = 20
 
                 ''' Start Screen '''
                 if not start:
