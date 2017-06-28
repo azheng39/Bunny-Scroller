@@ -11,16 +11,18 @@ class BunnyGame():
 
             ''' Game States '''
             done = False #Quit the game
-            start = False
+            start = False #Start the game
             gg = False #Collided, game reset
 
             ''' Font '''
-            myfont = pygame.font.SysFont("../assets/Halo3.ttf", 18)
+            myfont = pygame.font.Font("../assets/Halo3.ttf", 18)
 
             ''' Screen Text '''
             startText = myfont.render("S to Start", 0, (0,0,0))
             endText = myfont.render("GGWP", 0, (0,0,0))
             textYouDied = myfont.render("YOU DIED", 0, (0,0,0))
+            textRestart = myfont.render("R to Restart", 0, (0,0,0))
+            textQuit = myfont.render("Q to Quit", 0, (0,0,0))
 
             ''' Screen elements '''
             pygame.display.init()
@@ -55,12 +57,6 @@ class BunnyGame():
             obs = Obstacle()
             obsSprite = pygame.sprite.RenderPlain(obs)
 
-            obs2 = Obstacle()
-            obs2Sprite = pygame.sprite.RenderPlain(obs2)
-
-            obs3 = Obstacle()
-            obs3Sprite = pygame.sprite.RenderPlain(obs3)
-
             clock = pygame.time.Clock()
 
             ''' Music '''
@@ -77,32 +73,30 @@ class BunnyGame():
                     if event.type == pygame.QUIT:
                         done = True
 
+                    ''' Keyboard input '''
                     elif event.type == pygame.KEYDOWN:
 
-                        '''Jump'''
+                        ''' Bunny jump '''
                         if event.key == pygame.K_UP:
                             bun.jump()
-                            print("bun.jump()")
 
-                        '''Reset'''
+                        ''' Reset game '''
                         if event.key == pygame.K_r:
-                            print("=======Reset=======")
                             bun.reinit()
                             obs.reinit()
                             score = 0
                             gg = False
                             start = False
 
-                        '''Quit'''
+                        ''' Quit game '''
                         if event.key == pygame.K_q:
-                            print("=======Quit=======")
                             done = True
 
-                        '''Start'''
+                        ''' Start game '''
                         if event.key == pygame.K_s:
                             start = True
-                            print("=======Start=======")
 
+                ''' Draw background image '''
                 screen.blit(backGround.image, (0,0))
                 screen.blit(backGround.image, backGround.rect)
 
@@ -111,18 +105,23 @@ class BunnyGame():
                     bun.collide()
                     gg = True
 
-                ''' GGEZ '''
+                ''' Game over '''
                 if gg:
                     screen.blit(textYouDied, (500,500))
+                    screen.blit(textRestart, (400,400))
                     bun.pauseBunny()
                     obs.pauseObstacle()
+
+                    ''' Highscore I/O '''
                     if score > highscore:
                         highscore = score
                         scorefile = open("../assets/scores.txt", "w")
                         scorefile.write(str(highscore))
                         scorefile.close()
 
+                ''' Game start '''
                 if start:
+
                     ''' Score '''
                     label = myfont.render("Score: {0}".format(score), 0, (0, 0, 0))
                     texths = myfont.render("High Score: {0}".format(highscore), 0, (0,0,0))
@@ -130,7 +129,8 @@ class BunnyGame():
                     screen.blit(texths, (900, 40))
                     if not gg and start:
                         score += 1
-                    ''' Draw objects once Start = True 0'''
+
+                    ''' Draw objects '''
                     bun.draw(screen)
                     bunSprite.update()
 
@@ -148,7 +148,9 @@ class BunnyGame():
                 ''' Start Screen '''
                 if not start:
                     screen.blit(startText, (200,200))
+                    screen.blit(textQuit, (300,300))
 
+                ''' Screen update '''
                 pygame.display.update()
                 pygame.display.flip()
 
