@@ -1,5 +1,6 @@
 import pygame
 from ImageProcess import load_image
+import random
 
 class Obstacle(pygame.sprite.Sprite):
 
@@ -8,7 +9,7 @@ class Obstacle(pygame.sprite.Sprite):
 		variables for an obstacle object. '''
 		pygame.sprite.Sprite.__init__(self)
 		self.image, self.rect = load_image('../assets/obstacle.png')
-		self.rect = self.rect.inflate(-20,-10)
+		self.rect = self.rect.inflate(-10,-10)
 
 		self.x = 1100
 		self.y = 0
@@ -41,12 +42,12 @@ class Obstacle(pygame.sprite.Sprite):
 		left of screen and resets position when off screen. Draws obstacle onto
 		screen. '''
 		if(self.moving):
-			b = random.randrange(300,700,100)
-			a = random.randrange(1100,1700,b)
-			if self.rect.x <= -300:
-				self.rect.x = a
-			else:
-				self.rect.x -= self.velocity
+                        b = random.randrange(300,500,50)
+                        a = random.randrange(1100,1600,b)
+                        if self.rect.x <= -300:
+                                self.rect.x = a
+                        else:
+                                self.rect.x -= self.velocity
 
 
 		screen.blit(self.image,(self.rect.x,self.rect.y))
