@@ -15,7 +15,7 @@ class BunnyGame():
             gg = False #Collided, game reset
 
             ''' Font '''
-            myfont = pygame.font.Font("../assets/Halo3.ttf", 18)
+            myfont = pygame.font.Font("../assets/title.ttf", 18)
 
             ''' Screen Text '''
             startText = myfont.render("S to Start", 0, (0,0,0))
