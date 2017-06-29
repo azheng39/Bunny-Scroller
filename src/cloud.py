@@ -14,9 +14,9 @@ class Cloud(pygame.sprite.Sprite):
 		b = random.randrange(20,45,5)
 		self.rect = self.rect.inflate(a, b)
 
-		self.x = random.randrange(1100,1300,30)
+		self.x = random.randrange(1100,1800,30)
 		self.y = random.randrange(0,200,10)
-		self.rect.x = random.randrange(1100,1300,30)
+		self.rect.x = random.randrange(1100,1800,30)
 		self.rect.y = random.randrange(0,200,10)
 
 		self.velocity = 1
@@ -32,9 +32,9 @@ class Cloud(pygame.sprite.Sprite):
 
 	def reinit(self):
 		''' Resets the cloud to its starting state. '''
-		self.x = random.randrange(1100,1300,30)
+		self.x = random.randrange(1100,1800,30)
 		self.y = random.randrange(0,200,10)
-		self.rect.x = random.randrange(1100,1300,30)
+		self.rect.x = random.randrange(1100,1800,30)
 		self.rect.y = random.randrange(0,200,10)
 		self.velocity = 1
 		self.moving = True
@@ -46,7 +46,7 @@ class Cloud(pygame.sprite.Sprite):
 		screen. '''
 		if(self.moving):
 			if self.rect.x <= -500:
-				self.rect.x = random.randrange(1100,1300,30)
+				self.rect.x = random.randrange(1100,1800,30)
 				self.rect.y = random.randrange(0,200,10)
 			else:
 				self.rect.x -= self.velocity
