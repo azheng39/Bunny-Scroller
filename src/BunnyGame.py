@@ -21,6 +21,15 @@ class BunnyGame():
             mainFont = pygame.font.Font("../assets/main.ttf", 18)
             diedFont = pygame.font.Font("../assets/died.ttf", 60)
 
+            ''' Score '''
+            score = 0
+            highscore = 0
+
+            ''' Score I/O '''
+            scorefile = open("../assets/scores.txt", "r")
+            highscore = int(scorefile.read())
+            scorefile.close()
+
             ''' Screen Text '''
             titleText = titleFont.render("LEILA THE BUNNY", 0, (255,255,255))
             startText = mainFont.render("S to Start", 0, (0,0,0))
@@ -29,6 +38,7 @@ class BunnyGame():
             restartText = mainFont.render("R to Restart", 0, (0,0,0))
             quitText = mainFont.render("Q to Quit", 0, (0,0,0))
             pauseText = mainFont.render("M to Mute", 0, (0,0,0))
+            hsText = mainFont.render("High Score: {0}".format(highscore), 0, (0,0,0))
 
             ''' Screen elements '''
             pygame.display.init()
@@ -48,15 +58,6 @@ class BunnyGame():
             screen.blit(background, (0,0))
             pygame.display.flip()
             screen.blit(backGround.image, backGround.rect)
-
-            ''' Score '''
-            score = 0
-            highscore = 0
-
-            ''' Score I/O '''
-            scorefile = open("../assets/scores.txt", "r")
-            highscore = int(scorefile.read())
-            scorefile.close()
 
             ''' Objects '''
             bun = Bunny()
@@ -233,6 +234,8 @@ class BunnyGame():
                     screen.blit(startText, (478,478))
                     screen.blit(quitText, (473,508))
                     screen.blit(pauseText, (474, 538))
+                    screen.blit(hsText, (850,508))
+
 
                 ''' Screen update '''
                 pygame.display.update()
