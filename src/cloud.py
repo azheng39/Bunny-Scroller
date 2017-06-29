@@ -19,7 +19,7 @@ class Cloud(pygame.sprite.Sprite):
 		self.rect.x = random.randrange(1100,1300,30)
 		self.rect.y = random.randrange(0,200,10)
 
-		self.velocity = (num+1)/2
+		self.velocity = 1
 		self.moving = True
 
 	def pauseCloud(self):
@@ -36,7 +36,7 @@ class Cloud(pygame.sprite.Sprite):
 		self.y = random.randrange(0,200,10)
 		self.rect.x = random.randrange(1100,1300,30)
 		self.rect.y = random.randrange(0,200,10)
-		self.velocity = (num+1)/2
+		self.velocity = 1
 		self.moving = True
 
 

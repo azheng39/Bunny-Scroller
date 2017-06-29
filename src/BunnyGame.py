@@ -112,6 +112,7 @@ class BunnyGame():
                             stage.reinit()
                             cloud1.reinit()
                             cloud2.reinit()
+                            bun.jumpup = False
                             score = 0
                             gg = False
                             start = False
