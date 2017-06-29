@@ -223,7 +223,7 @@ class BunnyGame():
                         bun.lvlspeed = 2
 
                     if bun.counter >= 2000:
-                        obs.velocity = 14
+                        obs1.velocity = 14
                         obs2.velocity = 14
                         obs3.velocity = 14
                         stage.velocity = 14
