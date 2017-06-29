@@ -62,8 +62,8 @@ class BunnyGame():
             bun = Bunny()
             bunSprite = pygame.sprite.RenderPlain(bun)
 
-            obs = Obstacle()
-            obsSprite = pygame.sprite.RenderPlain(obs)
+            obs1 = Obstacle()
+            obs1Sprite = pygame.sprite.RenderPlain(obs1)
         
             obs2 = Obstacle()
             obs2Sprite = pygame.sprite.RenderPlain(obs2)
@@ -106,7 +106,7 @@ class BunnyGame():
                         ''' Reset game '''
                         if event.key == pygame.K_r:
                             bun.reinit()
-                            obs.reinit()
+                            obs1.reinit()
                             obs2.reinit()
                             obs3.reinit()
                             stage.reinit()
@@ -116,7 +116,7 @@ class BunnyGame():
                             score = 0
                             gg = False
                             start = False
-                            obs.velocity = 10
+                            obs1.velocity = 10
 
                         ''' Quit game '''
                         if event.key == pygame.K_q:
@@ -135,7 +135,7 @@ class BunnyGame():
                 screen.blit(backGround.image, backGround.rect)
 
                 ''' Collision '''
-                if bun.rect.colliderect(obs.rect) or bun.rect.colliderect(obs2.rect) or bun.rect.colliderect(obs3.rect) or bun.rect.colliderect(stage.rect):
+                if bun.rect.colliderect(obs1.rect) or bun.rect.colliderect(obs2.rect) or bun.rect.colliderect(obs3.rect) or bun.rect.colliderect(stage.rect):
                     bun.collide()
                     gg = True
  
@@ -151,7 +151,7 @@ class BunnyGame():
                     screen.blit(youDiedText, (405,30))
                     screen.blit(restartText, (466,100))
                     bun.pauseBunny()
-                    obs.pauseObstacle()
+                    obs1.pauseObstacle()
                     obs2.pauseObstacle()
                     obs3.pauseObstacle()
                     stage.pausePlatform()
@@ -180,8 +180,8 @@ class BunnyGame():
                     bun.draw(screen)
                     bunSprite.update()
 
-                    obs.draw(screen)
-                    obsSprite.update()
+                    obs1.draw(screen)
+                    obs1Sprite.update()
                 
                     obs2.draw(screen)
                     obs2Sprite.update()
@@ -199,27 +199,34 @@ class BunnyGame():
                     cloud2Sprite.update()
 
                     ''' Difficulty Levels '''
-                    obs3.velocity = 0
+                    obs1.velocity = 10
                     obs2.velocity = 0
+                    obs3.velocity = 0
                     stage.velocity = 0
                     
                     if bun.counter >= 500:
-                        obs2.velocity = 10
+                        obs1.velocity = 11
+                        obs2.velocity = 11
                         bun.lvlspeed = 4
                         
                     if bun.counter >= 1000:
-                        stage.velocity = 10
+                        obs1.velocity = 12
+                        obs2.velocity = 12
+                        stage.velocity = 12
                         bun.lvlspeed = 3
 
                     if bun.counter >= 1500:
-                        obs3.velocity = 10
+                        obs1.velocity = 13
+                        obs2.velocity = 13
+                        obs3.velocity = 13
+                        stage.velocity = 13
                         bun.lvlspeed = 2
 
                     if bun.counter >= 2000:
-                        obs.velocity = 15
-                        obs2.velocity = 15
-                        obs3.velocity = 15
-                        stage.velocity = 15
+                        obs.velocity = 14
+                        obs2.velocity = 14
+                        obs3.velocity = 14
+                        stage.velocity = 14
                         bun.lvlspeed = 1
                 if not start:
                     screen.blit(titleText, (120,17))
