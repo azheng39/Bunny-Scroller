@@ -4,11 +4,11 @@ from ImageProcess import load_image
 
 class Cloud(pygame.sprite.Sprite):
 
-	def __init__(self):
+	def __init__(self, num):
 		''' Load cloud image and initialize it for the screen. Initialize
 		variables for an cloud object. '''
 		pygame.sprite.Sprite.__init__(self)
-		self.image, self.rect = load_image('../assets/cloud.png')
+		self.image, self.rect = load_image('../assets/cloud' + str(num) + '.png')
 
 		a = random.randrange(20,45,5)
 		b = random.randrange(20,45,5)
@@ -19,7 +19,7 @@ class Cloud(pygame.sprite.Sprite):
 		self.rect.x = random.randrange(1100,1300,30)
 		self.rect.y = random.randrange(0,200,10)
 
-		self.velocity = 1
+		self.velocity = (num+1)/2
 		self.moving = True
 
 	def pauseCloud(self):
@@ -36,7 +36,7 @@ class Cloud(pygame.sprite.Sprite):
 		self.y = random.randrange(0,200,10)
 		self.rect.x = random.randrange(1100,1300,30)
 		self.rect.y = random.randrange(0,200,10)
-		self.velocity = 1
+		self.velocity = (num+1)/2
 		self.moving = True
 
 

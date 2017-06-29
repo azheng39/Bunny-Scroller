@@ -25,7 +25,7 @@ class BunnyGame():
             titleText = titleFont.render("LEILA THE BUNNY", 0, (255,255,255))
             startText = mainFont.render("S to Start", 0, (0,0,0))
             endText = mainFont.render("GGWP", 0, (0,0,0))
-            youDiedText = diedFont.render("YOU DIED", 0, (0,0,0))
+            youDiedText = diedFont.render("YOU DIED", 0, (200,27,27))
             restartText = mainFont.render("R to Restart", 0, (0,0,0))
             quitText = mainFont.render("Q to Quit", 0, (0,0,0))
             pauseText = mainFont.render("M to Mute", 0, (0,0,0))
@@ -34,6 +34,8 @@ class BunnyGame():
             pygame.display.init()
             screen = pygame.display.set_mode((1024, 576))
             pygame.display.set_caption('Leila the Bunny')
+            icon = pygame.image.load("../assets/icon.png")
+            pygame.display.set_icon(icon)
 
             ''' Background '''
             white = (255,255,255)
@@ -72,8 +74,11 @@ class BunnyGame():
             stage = Platform()
             stageSprite = pygame.sprite.RenderPlain(stage)
 
-            cloud1 = Cloud()
+            cloud1 = Cloud(0)
             cloud1Sprite = pygame.sprite.RenderPlain(cloud1)
+
+            cloud2 = Cloud(1)
+            cloud2Sprite = pygame.sprite.RenderPlain(cloud2)
 
             clock = pygame.time.Clock()
 
@@ -106,6 +111,7 @@ class BunnyGame():
                             obs3.reinit()
                             stage.reinit()
                             cloud1.reinit()
+                            cloud2.reinit()
                             score = 0
                             gg = False
                             start = False
@@ -147,8 +153,9 @@ class BunnyGame():
                     obs.pauseObstacle()
                     obs2.pauseObstacle()
                     obs3.pauseObstacle()
-                    stage.pausePlatform
+                    stage.pausePlatform()
                     cloud1.pauseCloud()
+                    cloud2.pauseCloud()
 
                     ''' Highscore I/O '''
                     if score > highscore:
@@ -187,22 +194,32 @@ class BunnyGame():
                     cloud1.draw(screen)
                     cloud1Sprite.update()
 
+                    cloud2.draw(screen)
+                    cloud2Sprite.update()
+
                     ''' Difficulty Levels '''
                     obs3.velocity = 0
                     obs2.velocity = 0
                     stage.velocity = 0
                     
-                    if bun.counter >= 200:
+                    if bun.counter >= 500:
                         obs2.velocity = 10
                         bun.lvlspeed = 4
                         
-                    if bun.counter >= 400:
+                    if bun.counter >= 1000:
                         stage.velocity = 10
                         bun.lvlspeed = 3
 
-                    if bun.counter >= 800:
+                    if bun.counter >= 1500:
                         obs3.velocity = 10
                         bun.lvlspeed = 2
+
+                    if bun.counter >= 2000:
+                        obs.velocity = 15
+                        obs2.velocity = 15
+                        obs3.velocity = 15
+                        stage.velocity = 15
+                        bun.lvlspeed = 1
                 if not start:
                     screen.blit(titleText, (120,17))
                     screen.blit(startText, (478,478))

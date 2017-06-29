@@ -8,7 +8,7 @@ class Bunny(pygame.sprite.Sprite):
 		variables for a bunny object. '''
 		pygame.sprite.Sprite.__init__(self)
 		self.bunnyImage, self.rect = load_image('../assets/0.png')
-		self.rect = self.rect.inflate(-25, -25)
+		self.rect = self.rect.inflate(-22, -22)
 
 		self.counter = 10
 		self.imageCounter = 0
