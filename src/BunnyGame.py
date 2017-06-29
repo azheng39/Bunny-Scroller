@@ -17,7 +17,7 @@ class BunnyGame():
             gg = False #Collided, game reset
 
             ''' Font '''
-            titleFont = pygame.font.Font("../assets/title.ttf", 50)
+            titleFont = pygame.font.Font("../assets/title.ttf", 90)
             mainFont = pygame.font.Font("../assets/main.ttf", 18)
             diedFont = pygame.font.Font("../assets/died.ttf", 60)
 
@@ -25,9 +25,10 @@ class BunnyGame():
             titleText = titleFont.render("LEILA THE BUNNY", 0, (255,255,255))
             startText = mainFont.render("S to Start", 0, (0,0,0))
             endText = mainFont.render("GGWP", 0, (0,0,0))
-            textYouDied = diedFont.render("YOU DIED", 0, (0,0,0))
-            textRestart = mainFont.render("R to Restart", 0, (0,0,0))
-            textQuit = mainFont.render("Q to Quit", 0, (0,0,0))
+            youDiedText = diedFont.render("YOU DIED", 0, (0,0,0))
+            restartText = mainFont.render("R to Restart", 0, (0,0,0))
+            quitText = mainFont.render("Q to Quit", 0, (0,0,0))
+            pauseText = mainFont.render("M to Mute", 0, (0,0,0))
 
             ''' Screen elements '''
             pygame.display.init()
@@ -140,8 +141,8 @@ class BunnyGame():
 
                 ''' Game over '''
                 if gg:
-                    screen.blit(textYouDied, (405,30))
-                    screen.blit(textRestart, (466,100))
+                    screen.blit(youDiedText, (405,30))
+                    screen.blit(restartText, (466,100))
                     bun.pauseBunny()
                     obs.pauseObstacle()
                     obs2.pauseObstacle()
@@ -161,9 +162,9 @@ class BunnyGame():
 
                     ''' Score '''
                     label = mainFont.render("Score: {0}".format(score), 0, (0, 0, 0))
-                    texths = mainFont.render("High Score: {0}".format(highscore), 0, (0,0,0))
+                    hsText = mainFont.render("High Score: {0}".format(highscore), 0, (0,0,0))
                     screen.blit(label, (850, 10))
-                    screen.blit(texths, (850, 40))
+                    screen.blit(hsText, (850, 40))
                     if not gg and start:
                         score += 1
 
@@ -203,9 +204,10 @@ class BunnyGame():
                         obs3.velocity = 10
                         bun.lvlspeed = 2
                 if not start:
-                    screen.blit(titleText, (307,20))
-                    screen.blit(startText, (478,85))
-                    screen.blit(textQuit, (473,105))
+                    screen.blit(titleText, (120,17))
+                    screen.blit(startText, (478,478))
+                    screen.blit(quitText, (473,508))
+                    screen.blit(pauseText, (474, 538))
 
                 ''' Screen update '''
                 pygame.display.update()
